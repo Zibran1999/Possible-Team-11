@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/buttonCricket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:backgroundTint="#D50000"
+        android:text="Cricket"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/buttonFootball"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:backgroundTint="#D50000"
+        android:text="Football"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="146dp" />
+</LinearLayout>
