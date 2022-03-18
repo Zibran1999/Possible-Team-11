@@ -2,6 +2,8 @@ package com.possible.team11app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -23,7 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class WelcomeActivity extends AppCompatActivity {
     private final String TAG = WelcomeActivity.class.getSimpleName();
     ActivityWelcomeBinding binding;
-    CircleImageView contactBtn, startBtn, shareBtn;
+    CircleImageView rateBtn, startBtn, shareBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class WelcomeActivity extends AppCompatActivity {
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         startBtn = binding.startBtn;
-        contactBtn = binding.contactBtn;
+        rateBtn = binding.rateBtn;
         shareBtn = binding.shareBtn;
 
         MyApp.showBannerAd(this, binding.adView);
@@ -46,12 +48,21 @@ public class WelcomeActivity extends AppCompatActivity {
             }, 3000);
 
         });
-        contactBtn.setOnClickListener(v -> {
-            contactUs();
+        rateBtn.setOnClickListener(v -> {
+            rateApp(WelcomeActivity.this);
         });
         shareBtn.setOnClickListener(v -> shareApp());
     }
-
+    public static void rateApp(Context context) {
+        Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        myAppLinkToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(myAppLinkToMarket);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, " unable to find market app", Toast.LENGTH_LONG).show();
+        }
+    }
     private void contactUs() {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setPackage("com.google.android.gm");
