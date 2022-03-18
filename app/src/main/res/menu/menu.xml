@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:iconTint="#6200EA"
+            android:title="Home" />
+        <item
+            android:id="@+id/whatsapp"
+            android:icon="@drawable/ic_baseline_local_phone_24"
+            android:iconTint="#6200EA"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@drawable/ic_privacy_tip"
+            android:iconTint="#6200EA"
+            android:title="Privacy Policy" />
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share"
+            android:iconTint="#6200EA"
+            android:title="Share" />
+
+
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_star_rate"
+            android:iconTint="#6200EA"
+            android:title="Rate" />
+    </group>
+</menu>
