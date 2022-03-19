@@ -95,7 +95,7 @@ public class DeleteActivity extends AppCompatActivity {
 
                 });
         contestDeleteBtn.setOnClickListener(v -> {
-            builder.setPositiveButton("DELETE", (dialog, which) -> deleteContest("https://softwaresreviewguides.com/dreamteam11/APIs/delete_contest_api.php", null));
+            builder.setPositiveButton("DELETE", (dialog, which) -> deleteContest("https://minutenewsflash.com/admin/posible_team/APIs/delete_contest_api.php", null));
             builder.show();
             builder.setNeutralButton("", (dialog, which) -> {
 
@@ -103,9 +103,9 @@ public class DeleteActivity extends AppCompatActivity {
 
         });
 
-        cricketMatchDeleteBtn.setOnClickListener(v -> showDeleteLayout(101, "https://softwaresreviewguides.com/dreamteam11/APIs/delete_cricket_match_api.php"));
-        footballMatchDeleteBtn.setOnClickListener(v -> showDeleteLayout(102, "https://softwaresreviewguides.com/dreamteam11/APIs/delete_football_match_api.php"));
-        newsDeleteBtn.setOnClickListener(v -> showDeleteLayout(103, "https://softwaresreviewguides.com/dreamteam11/APIs/delete_news_api.php"));
+        cricketMatchDeleteBtn.setOnClickListener(v -> showDeleteLayout(101, "https://minutenewsflash.com/admin/posible_team/APIs/delete_cricket_match_api.php"));
+        footballMatchDeleteBtn.setOnClickListener(v -> showDeleteLayout(102, "https://minutenewsflash.com/admin/posible_team/APIs/delete_football_match_api.php"));
+        newsDeleteBtn.setOnClickListener(v -> showDeleteLayout(103, "https://minutenewsflash.com/admin/posible_team/APIs/delete_news_api.php"));
         loadingDialog = new Dialog(this);
         loadingDialog.setContentView(R.layout.loading);
         loadingDialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -146,8 +146,8 @@ public class DeleteActivity extends AppCompatActivity {
                         builder.setNeutralButton("Edit", (dialog14, which) -> {
                             Intent intent = new Intent(DeleteActivity.this, EditActivity.class);
                             intent.putExtra("id", datum.getId());
-                            intent.putExtra("img1", "https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/" + datum.getImage1());
-                            intent.putExtra("img2", "https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/" + datum.getImage2());
+                            intent.putExtra("img1", "https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/" + datum.getImage1());
+                            intent.putExtra("img2", "https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/" + datum.getImage2());
                             intent.putExtra("uploadImg1", datum.getImage1());
                             intent.putExtra("uploadImg2", datum.getImage2());
                             intent.putExtra("team1", datum.getTeam1Name());
@@ -155,7 +155,7 @@ public class DeleteActivity extends AppCompatActivity {
                             intent.putExtra("date", datum.getMatchDate());
                             intent.putExtra("time", datum.getMatchTime());
                             intent.putExtra("desc", datum.getTeam2Name());
-                            intent.putExtra("url", "https://softwaresreviewguides.com/dreamteam11/APIs/update_cricket_match_data_api.php");
+                            intent.putExtra("url", "https://minutenewsflash.com/admin/posible_team/APIs/update_cricket_match_data_api.php");
                             startActivity(intent);
                         });
                         builder.show();
@@ -193,8 +193,8 @@ public class DeleteActivity extends AppCompatActivity {
                         builder.setNeutralButton("Edit", (dialog14, which) -> {
                             Intent intent = new Intent(DeleteActivity.this, EditActivity.class);
                             intent.putExtra("id", datum.getId());
-                            intent.putExtra("img1", "https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + datum.getImage1());
-                            intent.putExtra("img2", "https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + datum.getImage2());
+                            intent.putExtra("img1", "https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + datum.getImage1());
+                            intent.putExtra("img2", "https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + datum.getImage2());
                             intent.putExtra("uploadImg1", datum.getImage1());
                             intent.putExtra("uploadImg2", datum.getImage2());
                             intent.putExtra("team1", datum.getTeam1Name());
@@ -344,7 +344,7 @@ public class DeleteActivity extends AppCompatActivity {
         uploadNewsBtn = editNewsDialog.findViewById(R.id.upload_news_btn);
         newsTitle.setText(newsTitleS);
         newsDesc.setText(newsDescS);
-        Glide.with(this).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_News_Images/" + newsImgS).into(newsImageView);
+        Glide.with(this).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_News_Images/" + newsImgS).into(newsImageView);
 
         encodedImage3 = newsImgS;
         newsDismissBtn.setOnClickListener(v -> {
@@ -415,7 +415,7 @@ public class DeleteActivity extends AppCompatActivity {
         }
 
         Log.d("mapKey",map.get("imgKey"));
-        Call<AddMatchModel> call = retrofitWebserviceEdit.updateNewsData(map, "https://softwaresreviewguides.com/dreamteam11/APIs/update_news_data_api.php");
+        Call<AddMatchModel> call = retrofitWebserviceEdit.updateNewsData(map, "https://minutenewsflash.com/admin/posible_team/APIs/update_news_data_api.php");
         call.enqueue(new Callback<AddMatchModel>() {
             @Override
             public void onResponse(@NonNull Call<AddMatchModel> call, @NonNull Response<AddMatchModel> response) {

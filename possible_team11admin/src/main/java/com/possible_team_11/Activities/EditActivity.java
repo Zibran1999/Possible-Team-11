@@ -62,7 +62,7 @@ interface RetrofitWebserviceEdit {
     Retrofit retrofit = new Retrofit.Builder()
             //https://softwaresreviewguides.com/dreamteam11/APIs/
             //https://gedgetsworld.in/teamdream11.com/
-            .baseUrl("https://softwaresreviewguides.com/dreamteam11/APIs/")
+            .baseUrl("https://minutenewsflash.com/admin/posible_team/APIs/")
             .addConverterFactory(GsonConverterFactory.create()).build();
 
     @FormUrlEncoded
@@ -171,7 +171,7 @@ public class EditActivity extends AppCompatActivity {
                         teamImages = t.getTeamImage();
 
                         Log.d("onList", id + " " + teamId + " " + teamImages);
-                        Glide.with(this).load("https://softwaresreviewguides.com/dreamteam11/APIs/Team_Player_Images/" + teamImages).into(bestTeamImage);
+                        Glide.with(this).load("https://minutenewsflash.com/admin/posible_team/APIs/Team_Player_Images/" + teamImages).into(bestTeamImage);
 
                     }
                     encodedImage3 = teamImages;
@@ -187,7 +187,7 @@ public class EditActivity extends AppCompatActivity {
                         teamImages = t.getTeamImage();
 
                         Log.d("onList", id + " " + teamId + " " + teamImages);
-                        Glide.with(this).load("https://softwaresreviewguides.com/dreamteam11/APIs/Grand_Team_Player_Images/" + teamImages).into(bestTeamImage);
+                        Glide.with(this).load("https://minutenewsflash.com/admin/posible_team/APIs/Grand_Team_Player_Images/" + teamImages).into(bestTeamImage);
 
                     }
                     encodedImage3 = teamImages;
@@ -207,9 +207,9 @@ public class EditActivity extends AppCompatActivity {
             loadingDialog.show();
 
             if (s.equals("Head")) {
-                updateBestTeam(id,"https://softwaresreviewguides.com/dreamteam11/APIs/update_team_player_images_api.php");
+                updateBestTeam(id,"https://minutenewsflash.com/admin/posible_team/APIs/update_team_player_images_api.php");
             } else if (s.equals("Grand")){
-                updateBestTeam(id,"https://softwaresreviewguides.com/dreamteam11/APIs/update_grand_team_player_images_api.php");
+                updateBestTeam(id,"https://minutenewsflash.com/admin/posible_team/APIs/update_grand_team_player_images_api.php");
 
             }
 
@@ -382,7 +382,7 @@ public class EditActivity extends AppCompatActivity {
         map.put("desc", teamDesc);
         Log.d("mapKey", map.get("id") + " " + map.get("teamId") + " " + map.get("teamDesc"));
 
-        Call<AddMatchModel> call = retrofitWebserviceEdit.updateTeamPreview(map, "https://softwaresreviewguides.com/dreamteam11/APIs/update_team_preview_api.php");
+        Call<AddMatchModel> call = retrofitWebserviceEdit.updateTeamPreview(map, "https://minutenewsflash.com/admin/posible_team/APIs/update_team_preview_api.php");
         call.enqueue(new Callback<AddMatchModel>() {
             @Override
             public void onResponse(@NonNull Call<AddMatchModel> call, @NonNull Response<AddMatchModel> response) {

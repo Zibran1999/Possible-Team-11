@@ -80,8 +80,8 @@ public class CricketLiveScoreAdapter extends RecyclerView.Adapter<RecyclerView.V
         if (holder.getItemViewType() == ITEM_VIEW) {
             int pos = position - Math.round(position / ITEM_FEED_COUNT);
 
-            Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/" + cricketLiveScoreModelList.get(pos).getImage1()).into(((CricketLiveScoreViewHolder)holder).teamIcon1);
-            Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/" + cricketLiveScoreModelList.get(pos).getImage2()).into(((CricketLiveScoreViewHolder)holder).teamIcon2);
+            Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/" + cricketLiveScoreModelList.get(pos).getImage1()).into(((CricketLiveScoreViewHolder)holder).teamIcon1);
+            Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/" + cricketLiveScoreModelList.get(pos).getImage2()).into(((CricketLiveScoreViewHolder)holder).teamIcon2);
             ((CricketLiveScoreViewHolder)holder).teamName.setText(cricketLiveScoreModelList.get(pos).getTeam1Name() + "  Vs  " + cricketLiveScoreModelList.get(pos).getTeam2Name());
             ((CricketLiveScoreViewHolder)holder).date.setText(cricketLiveScoreModelList.get(pos).getMatchDate());
             ((CricketLiveScoreViewHolder)holder).time.setText(cricketLiveScoreModelList.get(pos).getMatchTime());

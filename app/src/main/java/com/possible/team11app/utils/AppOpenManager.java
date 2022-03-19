@@ -35,6 +35,7 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
     private long loadTime = 0;
 
 
+
     /**
      * Constructor
      */

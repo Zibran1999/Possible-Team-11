@@ -123,6 +123,8 @@ public class MatchDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PageViewModel pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
+        matchViewModel = new ViewModelProvider(requireActivity(),
+                new MatchViewModelFactory(requireActivity().getApplication(), MatchDetailActivity.id.trim())).get(MatchViewModel.class);
 
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
@@ -176,8 +178,6 @@ public class MatchDetailsFragment extends Fragment {
             List<MatchPreview> matchPreviews = new ArrayList<>();
             lottieAnimationView.setAnimation(R.raw.loding_dot);
             lottieAnimationView.playAnimation();
-            matchViewModel = new ViewModelProvider(requireActivity(),
-                    new MatchViewModelFactory(requireActivity().getApplication(), MatchDetailActivity.id.trim())).get(MatchViewModel.class);
             matchViewModel.getMatchPreview().observe(requireActivity(), matchPreviewModel -> {
                 matchPreviews.clear();
                 List<MatchPreview> matchPreviewList = matchPreviewModel.getData();
@@ -291,10 +291,7 @@ public class MatchDetailsFragment extends Fragment {
 
                 AdsViewModel.destroyBanner();
                 loadingDialog.show();
-                // appOpenManager = new AppOpenManager(MyApp.mInstance, Paper.book().read(Prevalent.openAppAds), requireActivity());
-
-
-                intent = new Intent(root.getContext(), MatchDetailActivity.class);
+                intent = new Intent(root.getContext(), MyBestTeamActivity.class);
                 intent.putExtra("teamName", "Head");
                 startActivity(intent);
 
@@ -304,60 +301,10 @@ public class MatchDetailsFragment extends Fragment {
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Head team Click");
                 mFirebaseAnalytics.logEvent("Selected_head_team_item", bundle);
 
-//                if (MyApp.mInterstitialAd != null) {
-//                    MyApp.mInterstitialAd.show(requireActivity());
-//                    MyApp.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-//                        @Override
-//                        public void onAdDismissedFullScreenContent() {
-//                            // Called when fullscreen content is dismissed.
-//                            intent = new Intent(root.getContext(), MyBestTeam.class);
-//                            intent.putExtra("teamName", "Head");
-//                            startActivity(intent);
-//
-//                            FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                            Bundle bundle = new Bundle();
-//                            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Head To Head");
-//                            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Head team Click");
-//                            mFirebaseAnalytics.logEvent("Selected_head_team_item", bundle);
-//                        }
-//
-//                        @Override
-//                        public void onAdFailedToShowFullScreenContent(AdError adError) {
-//                            // Called when fullscreen content failed to show.
-//                            Log.d("TAG", "The ad failed to show.");
-//                        }
-//
-//                        @Override
-//                        public void onAdShowedFullScreenContent() {
-//                            // Called when fullscreen content is shown.
-//                            // Make sure to set your reference to null so you don't
-//                            // show it a second time.
-//                            MyApp.mInterstitialAd = null;
-//                            Log.d("TAG", "The ad was shown.");
-//                        }
-//                    });
-//                } else {
-//                    MyApp.showInterstitialAd(requireActivity());
-//                    intent = new Intent(root.getContext(), MyBestTeam.class);
-//                    intent.putExtra("teamName", "Head");
-//                    startActivity(intent);
-//                    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Head To Head");
-//                    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Head team Click");
-//                    mFirebaseAnalytics.logEvent("Selected_head_team_item", bundle);
-//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-//
-//                }
-
             });
             grandBtn.setOnClickListener(view -> {
                 loadingDialog.show();
-                //appOpenManager = new AppOpenManager(MyApp.mInstance, Paper.book().read(Prevalent.openAppAds), requireActivity());
-
                 AdsViewModel.destroyBanner();
-
-
                 intent = new Intent(root.getContext(), MyBestTeamActivity.class);
                 intent.putExtra("teamName", "Grand");
                 startActivity(intent);
@@ -368,60 +315,10 @@ public class MatchDetailsFragment extends Fragment {
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Grand team Click");
                 mFirebaseAnalytics.logEvent("Selected_grand_team_item", bundle);
 
-//                if (MyApp.mInterstitialAd != null) {
-//                    MyApp.mInterstitialAd.show(requireActivity());
-//                    MyApp.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-//                        @Override
-//                        public void onAdDismissedFullScreenContent() {
-//                            // Called when fullscreen content is dismissed.
-//                            intent = new Intent(root.getContext(), MyBestTeam.class);
-//                            intent.putExtra("teamName", "Grand");
-//                            startActivity(intent);
-//
-//                            FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                            Bundle bundle = new Bundle();
-//                            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Grand Team");
-//                            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Grand team Click");
-//                            mFirebaseAnalytics.logEvent("Selected_grand_team_item", bundle);
-//
-//                        }
-//
-//                        @Override
-//                        public void onAdFailedToShowFullScreenContent(AdError adError) {
-//                            // Called when fullscreen content failed to show.
-//                            Log.d("TAG", "The ad failed to show.");
-//                        }
-//
-//                        @Override
-//                        public void onAdShowedFullScreenContent() {
-//                            // Called when fullscreen content is shown.
-//                            // Make sure to set your reference to null so you don't
-//                            // show it a second time.
-//                            MyApp.mInterstitialAd = null;
-//                            Log.d("TAG", "The ad was shown.");
-//                        }
-//                    });
-//                } else {
-//                    MyApp.showInterstitialAd(requireActivity());
-//                    intent = new Intent(root.getContext(), MyBestTeam.class);
-//                    intent.putExtra("teamName", "Grand");
-//                    startActivity(intent);
-//
-//                    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Grand Team");
-//                    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Grand team Click");
-//                    mFirebaseAnalytics.logEvent("Selected_grand_team_item", bundle);
-//
-//
-//                }
-
             });
             simpleBtn.setOnClickListener(v -> {
                 loadingDialog.show();
-                // appOpenManager = new AppOpenManager(MyApp.mInstance, Paper.book().read(Prevalent.openAppAds), requireActivity());
                 AdsViewModel.destroyBanner();
-
 
                 intent = new Intent(root.getContext(), MyBestTeamActivity.class);
                 intent.putExtra("teamName", "Simple");
@@ -432,53 +329,6 @@ public class MatchDetailsFragment extends Fragment {
                 bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Simple Team");
                 bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Simple team Click");
                 mFirebaseAnalytics.logEvent("Selected_simple_team_item", bundle);
-
-//                if (MyApp.mInterstitialAd != null) {
-//                    MyApp.mInterstitialAd.show(requireActivity());
-//                    MyApp.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-//                        @Override
-//                        public void onAdDismissedFullScreenContent() {
-//                            // Called when fullscreen content is dismissed.
-//                            intent = new Intent(root.getContext(), MyBestTeam.class);
-//                            intent.putExtra("teamName", "Simple");
-//                            startActivity(intent);
-//
-//                            FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                            Bundle bundle = new Bundle();
-//                            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Simple Team");
-//                            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Simple team Click");
-//                            mFirebaseAnalytics.logEvent("Selected_simple_team_item", bundle);
-//                        }
-//
-//                        @Override
-//                        public void onAdFailedToShowFullScreenContent(AdError adError) {
-//                            // Called when fullscreen content failed to show.
-//                            Log.d("TAG", "The ad failed to show.");
-//                        }
-//
-//                        @Override
-//                        public void onAdShowedFullScreenContent() {
-//                            // Called when fullscreen content is shown.
-//                            // Make sure to set your reference to null so you don't
-//                            // show it a second time.
-//                            MyApp.mInterstitialAd = null;
-//                            Log.d("TAG", "The ad was shown.");
-//                        }
-//                    });
-//                } else {
-//                    MyApp.showInterstitialAd(requireActivity());
-//                    intent = new Intent(root.getContext(), MyBestTeam.class);
-//                    intent.putExtra("teamName", "Simple");
-//                    startActivity(intent);
-//
-//                    FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireActivity());
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Simple Team");
-//                    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Simple team Click");
-//                    mFirebaseAnalytics.logEvent("Selected_simple_team_item", bundle);
-//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-//
-//                }
 
             });
 

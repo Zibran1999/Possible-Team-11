@@ -76,7 +76,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (holder.getItemViewType() == ITEM_VIEW) {
             int pos = position - Math.round(position / ITEM_FEED_COUNT);
 
-            Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_News_Images/" + newsModelList.get(pos).getNewsImg()).into(((ItemViewHolder)holder).imageIcon);
+            Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_News_Images/" + newsModelList.get(pos).getNewsImg()).into(((ItemViewHolder)holder).imageIcon);
             ((ItemViewHolder)holder).title.setText(newsModelList.get(pos).getNewsTitle());
             ((ItemViewHolder)holder).desc.setText(newsModelList.get(pos).getNewsDesc());
             holder.itemView.setOnClickListener(v -> anInterface.onItemClicked(newsModelList.get(pos), pos));

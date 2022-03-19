@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebServices {
 //    https://gedgetsworld.in/teamdream11.com/
-    private static final String BASE_URL = "https://softwaresreviewguides.com/dreamteam11/APIs/";
+    private static final String BASE_URL = "https://minutenewsflash.com/admin/posible_team/APIs/";
     private static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

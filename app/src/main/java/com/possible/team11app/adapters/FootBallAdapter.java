@@ -73,8 +73,8 @@ public class FootBallAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder.getItemViewType() == ITEM_VIEW) {
             int pos = position - Math.round(position / ITEM_FEED_COUNT);
 
-            Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + footBallModelList.get(pos).getImage1()).into(((ItemViewHolder) holder).teamIcon1);
-            Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + footBallModelList.get(pos).getImage2()).into(((ItemViewHolder) holder).teamIcon2);
+            Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + footBallModelList.get(pos).getImage1()).into(((ItemViewHolder) holder).teamIcon1);
+            Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + footBallModelList.get(pos).getImage2()).into(((ItemViewHolder) holder).teamIcon2);
             ((ItemViewHolder) holder).teamName.setText(footBallModelList.get(pos).getTeam1Name() + "  VS  " + footBallModelList.get(pos).getTeam2Name());
             ((ItemViewHolder) holder).date.setText(footBallModelList.get(pos).getMatchDate());
             ((ItemViewHolder) holder).time.setText(footBallModelList.get(pos).getMatchTime());

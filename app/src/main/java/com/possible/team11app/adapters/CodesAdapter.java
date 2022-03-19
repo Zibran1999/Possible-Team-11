@@ -51,7 +51,7 @@ public class CodesAdapter extends RecyclerView.Adapter<CodesAdapter.ViewHolder> 
         holder.totalWinner.setText(codesModelList.get(position).getTotalWinner());
         holder.totalTeam.setText(codesModelList.get(position).getTotalTeam());
         holder.contestCode.setText(codesModelList.get(position).getContestCode());
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Contest_Images/" + codesModelList.get(position).getImages()).into(holder.profileImg);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Contest_Images/" + codesModelList.get(position).getImages()).into(holder.profileImg);
         holder.showFullProfileImage(codesModelList.get(position).getImages());
 
         holder.profileImg.setOnClickListener(v -> {
@@ -119,7 +119,7 @@ public class CodesAdapter extends RecyclerView.Adapter<CodesAdapter.ViewHolder> 
             dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(itemView.getContext(), R.drawable.item_bg));
             dialog.setCancelable(true);
             ImageView imageView = dialog.findViewById(R.id.fullImage);
-            Glide.with(itemView.getContext()).load("https://softwaresreviewguides.com/dreamteam11/APIs/Contest_Images/" + images).into(imageView);
+            Glide.with(itemView.getContext()).load("https://minutenewsflash.com/admin/posible_team/APIs/Contest_Images/" + images).into(imageView);
 
 
         }

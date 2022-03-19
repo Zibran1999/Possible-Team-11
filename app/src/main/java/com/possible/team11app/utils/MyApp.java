@@ -135,7 +135,7 @@ public class MyApp extends Application {
                 if (response.isSuccessful()) {
                     if (Objects.requireNonNull(response.body()).getData() != null) {
                         for (AdsModel ads : response.body().getData()) {
-                            Log.d("admobAdId", ads.getBanner() + " " + ads.getInterstitial() + " " + ads.getNativeADs());
+                            Log.d("admobAdId", ads.getBanner() + " " + ads.getInterstitial() + " " + ads.getAppOpen());
                             Paper.book().write(Prevalent.bannerAds, ads.getBanner().trim());
                             Paper.book().write(Prevalent.interstitialAds, ads.getInterstitial().trim());
                             Paper.book().write(Prevalent.nativeAds, ads.getNativeADs().trim());

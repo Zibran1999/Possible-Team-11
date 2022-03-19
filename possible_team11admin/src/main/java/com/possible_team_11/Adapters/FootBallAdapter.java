@@ -39,8 +39,8 @@ public class FootBallAdapter extends RecyclerView.Adapter<FootBallAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + footBallModelList.get(position).getImage1()).into(holder.teamIcon1);
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Football_Team_Images/" + footBallModelList.get(position).getImage2()).into(holder.teamIcon2);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + footBallModelList.get(position).getImage1()).into(holder.teamIcon1);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Football_Team_Images/" + footBallModelList.get(position).getImage2()).into(holder.teamIcon2);
         holder.teamName.setText(footBallModelList.get(position).getTeam1Name() + "  VS  " + footBallModelList.get(position).getTeam2Name());
         holder.date.setText(footBallModelList.get(position).getMatchDate());
         holder.desc.setText(footBallModelList.get(position).getMatchDesc());

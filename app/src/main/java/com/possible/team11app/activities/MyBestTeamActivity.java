@@ -39,6 +39,7 @@ public class MyBestTeamActivity extends AppCompatActivity {
         MyApp.showInterstitialAd(MyBestTeamActivity.this);
         AdsViewModel adsViewModel = new AdsViewModel(this,binding.adView);
         getLifecycle().addObserver(adsViewModel);
+        matchViewModel = new ViewModelProvider(this, new MatchViewModelFactory(this.getApplication(), MatchDetailActivity.id.trim())).get(MatchViewModel.class);
 
         teamName = getIntent().getStringExtra("teamName");
         showBestTeamImage(this, teamName);
@@ -54,7 +55,6 @@ public class MyBestTeamActivity extends AppCompatActivity {
         lottieAnimationView.setVisibility(View.VISIBLE);
         lottieAnimationView.playAnimation();
 
-        matchViewModel = new ViewModelProvider(this, new MatchViewModelFactory(this.getApplication(), MatchDetailActivity.id.trim())).get(MatchViewModel.class);
         switch (teamName) {
             case "Head":
                 matchViewModel.getTeamImages().observe(this, teamPlayerImageModel -> {
@@ -67,7 +67,7 @@ public class MyBestTeamActivity extends AppCompatActivity {
                             String teamImages = t.getTeamImage();
                             Log.d("onList", id + " " + teamId + " " + teamImages);
                             if (MatchDetailActivity.id.equals(teamId)) {
-                                Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Team_Player_Images/" + teamImages).into(teamImage);
+                                Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Team_Player_Images/" + teamImages).into(teamImage);
                                 lottieAnimationView.setVisibility(View.GONE);
                                 new Handler().postDelayed(() -> MyApp.showInterstitialAd(MyBestTeamActivity.this), 2000);
                                 // MyApp.showBannerAd(this,binding.adView);
@@ -96,7 +96,7 @@ public class MyBestTeamActivity extends AppCompatActivity {
                             String teamImages = t.getTeamImage();
                             Log.d("onList", id + " " + teamId + " " + teamImages);
                             if (MatchDetailActivity.id.equals(teamId)) {
-                                Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Grand_Team_Player_Images/" + teamImages).into(teamImage);
+                                Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Grand_Team_Player_Images/" + teamImages).into(teamImage);
                                 lottieAnimationView.setVisibility(View.GONE);
                                 new Handler().postDelayed(() -> MyApp.showInterstitialAd(MyBestTeamActivity.this), 2000);
 
@@ -126,7 +126,7 @@ public class MyBestTeamActivity extends AppCompatActivity {
                             String teamImages = t.getTeamImage();
                             Log.d("onList", id + " " + teamId + " " + teamImages);
                             if (MatchDetailActivity.id.equals(teamId)) {
-                                Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Simple_Team_Player_Images/" + teamImages).into(teamImage);
+                                Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Simple_Team_Player_Images/" + teamImages).into(teamImage);
                                 lottieAnimationView.setVisibility(View.GONE);
                                 Log.d("teamImage", t.getTeamImage());
                                 new Handler().postDelayed(() -> MyApp.showInterstitialAd(MyBestTeamActivity.this), 2000);

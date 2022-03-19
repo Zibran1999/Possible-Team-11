@@ -35,7 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_News_Images/" + newsModelList.get(position).getNewsImg()).into(holder.imageIcon);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_News_Images/" + newsModelList.get(position).getNewsImg()).into(holder.imageIcon);
         holder.title.setText(newsModelList.get(position).getNewsTitle());
         holder.desc.setText(newsModelList.get(position).getNewsDesc());
         holder.itemView.setOnClickListener(v -> anInterface.onItemClicked(newsModelList.get(position)));

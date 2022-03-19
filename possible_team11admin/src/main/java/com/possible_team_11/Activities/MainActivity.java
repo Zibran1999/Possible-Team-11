@@ -73,7 +73,7 @@ import retrofit2.http.Url;
 interface RetrofitWebservice {
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://softwaresreviewguides.com/dreamteam11/APIs/")
+            .baseUrl("https://minutenewsflash.com/admin/posible_team/APIs/")
             .addConverterFactory(GsonConverterFactory.create()).build();
 
     @FormUrlEncoded
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             previewCancelBtn, uploadCricketPreviewBtn, uploadCricketTeamPlayers, selectCricket, selectFootball, deleteBtn;
     Button dismissBtn, adIdUploadBtn, adIdCancelBtn;
     ImageButton newsDismissBtn;
-    Dialog addMatchDialog, addCricketPreviewDialog, addNewsDialog, loadingDialog, choiceDialog, adsControlDialog, adsUpdateDialog;
+    Dialog addMatchDialog, addCricketPreviewDialog, addNewsDialog, loadingDialog, choiceDialog, adsUpdateDialog;
     ImageView image_1, image_2, newsImageView, teamPlayersImageView;
     EditText team1Name, team2Name, matchDesc, newsTitle, newsDesc, cricketPreviewText, bannerIdTxt, interstitialIdTxt, nativeIdTxt, appopenAd;
     TextView matchDate, matchTime, adIdTitleTxt;
@@ -128,13 +128,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     String getMatchTeamName, adIdTitle;
     RetrofitWebservice retrofitWebservice;
-    SwitchMaterial bannerAds, interstitialAds;
-    boolean bannerAdsBool, interstitialAdsBool;
     boolean bannAds, intersAds;
     Button uploadGrandTeamPlayerImages;
     ApiInterface apiInterface;
     AdsModel adsModel;
     Map<String, String> map = new HashMap<>();
+    Button uploadSimpleTeamPlayerImages;
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -150,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
         cricketPreviewBtn = findViewById(R.id.uploadCricketPreviewBtn);
         uploadCricketTeamPlayers = findViewById(R.id.upload_cricket_match_team);
         uploadGrandTeamPlayerImages = findViewById(R.id.upload_grand_cricket_match_team);
+        uploadSimpleTeamPlayerImages = findViewById(R.id.upload_simple_cricket_match_team);
+
         retrofitWebservice = RetrofitWebservice.retrofit.create(RetrofitWebservice.class);
 
         arrayList = new ArrayList<>();
@@ -159,17 +160,18 @@ public class MainActivity extends AppCompatActivity {
 
         cricketBtn.setOnClickListener(v -> {
 
-            addMatch("https://softwaresreviewguides.com/dreamteam11/APIs/add_match_api.php");
+            addMatch("https://minutenewsflash.com/admin/posible_team/APIs/add_match_api.php");
             addMatchDialog.show();
         });
         footballBtn.setOnClickListener(v -> {
-            addMatch("https://softwaresreviewguides.com/dreamteam11/APIs/add_football_data_api.php");
+            addMatch("https://minutenewsflash.com/admin/posible_team/APIs/add_football_data_api.php");
             addMatchDialog.show();
         });
         newsBtn.setOnClickListener(v -> addNews());
-        cricketPreviewBtn.setOnClickListener(v -> userChoice(999, "https://softwaresreviewguides.com/dreamteam11/APIs/add_preview_api.php"));
-        uploadCricketTeamPlayers.setOnClickListener(v -> userChoice(777, "https://softwaresreviewguides.com/dreamteam11/APIs/add_team_player_image_api.php"));
-        uploadGrandTeamPlayerImages.setOnClickListener(v -> userChoice(777, "https://softwaresreviewguides.com/dreamteam11/APIs/add_grand_team_player_image_api.php"));
+        cricketPreviewBtn.setOnClickListener(v -> userChoice(999, "https://minutenewsflash.com/admin/posible_team/APIs/add_preview_api.php"));
+        uploadCricketTeamPlayers.setOnClickListener(v -> userChoice(777, "https://minutenewsflash.com/admin/posible_team/APIs/add_team_player_image_api.php"));
+        uploadGrandTeamPlayerImages.setOnClickListener(v -> userChoice(777, "https://minutenewsflash.com/admin/posible_team/APIs/add_grand_team_player_image_api.php"));
+        uploadSimpleTeamPlayerImages.setOnClickListener(v -> userChoice(777, "https://minutenewsflash.com/admin/posible_team/APIs/add_simple_team_player_images.php"));
 
 
         //****Loading Dialog****/
@@ -186,15 +188,11 @@ public class MainActivity extends AppCompatActivity {
         Button updateAdBtn = findViewById(R.id.update_ad_id);
         Button updateExpertAdBtn = findViewById(R.id.update_ad_id_2);
         Button updateDreamTeamAdBtn = findViewById(R.id.update_ad_id_3);
-        updateAdBtn.setOnClickListener(v -> {
-            showUpdateAdsDialog("Prime Team");
-        });
-        updateExpertAdBtn.setOnClickListener(v -> {
-            showUpdateAdsDialog("My Expert Team");
-        });
-        updateDreamTeamAdBtn.setOnClickListener(v -> {
-            showUpdateAdsDialog("Dream Team");
-        });
+        updateAdBtn.setVisibility(View.GONE);
+        updateDreamTeamAdBtn.setVisibility(View.GONE);
+        updateAdBtn.setOnClickListener(v -> showUpdateAdsDialog("Prime Team"));
+        updateExpertAdBtn.setOnClickListener(v -> showUpdateAdsDialog("My Expert Team"));
+        updateDreamTeamAdBtn.setOnClickListener(v -> showUpdateAdsDialog("Dream Team"));
 
 
     }
@@ -300,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchAdsStatus() {
         loadingDialog.show();
-        Call<AdsStatusModel> call = retrofitWebservice.getAdsStatus("https://softwaresreviewguides.com/dreamteam11/APIs/fetch_ads_status_api.php");
+        Call<AdsStatusModel> call = retrofitWebservice.getAdsStatus("https://minutenewsflash.com/admin/posible_team/APIs/fetch_ads_status_api.php");
         call.enqueue(new Callback<AdsStatusModel>() {
             @Override
             public void onResponse(Call<AdsStatusModel> call, Response<AdsStatusModel> response) {
@@ -328,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
         Map<String, String> booleanMap = new HashMap<>();
         booleanMap.put("bannerAds", String.valueOf(bannerAdsBool));
         booleanMap.put("interstitialAds", String.valueOf(interstitialAdsBool));
-        Call<AddMatchModel> call = retrofitWebservice.postAdsStatus("https://softwaresreviewguides.com/dreamteam11/APIs/add_ads_status_api.php", booleanMap);
+        Call<AddMatchModel> call = retrofitWebservice.postAdsStatus("https://minutenewsflash.com/admin/posible_team/APIs/add_ads_status_api.php", booleanMap);
         call.enqueue(new Callback<AddMatchModel>() {
             @Override
             public void onResponse(@NonNull Call<AddMatchModel> call, @NonNull Response<AddMatchModel> response) {
@@ -397,11 +395,11 @@ public class MainActivity extends AppCompatActivity {
         if (cricket.equals("cricket")) {
             arrayList.clear();
             arrayListS.clear();
-            fetchMatchDetails("https://softwaresreviewguides.com/dreamteam11/APIs/fetch_match_data_api.php");
+            fetchMatchDetails("https://minutenewsflash.com/admin/posible_team/APIs/fetch_match_data_api.php");
         } else {
             arrayList.clear();
             arrayListS.clear();
-            fetchMatchDetails("https://softwaresreviewguides.com/dreamteam11/APIs/fetch_football_match_data_api.php");
+            fetchMatchDetails("https://minutenewsflash.com/admin/posible_team/APIs/fetch_football_match_data_api.php");
         }
         if (i == 999) {
             textInputLayout.setVisibility(View.VISIBLE);
@@ -534,7 +532,7 @@ public class MainActivity extends AppCompatActivity {
         map.put("title", newsTitleString);
         map.put("desc", newsDescString);
         map.put("id", uuid.toString());
-        Call<AddMatchModel> call = retrofitWebservice.getNewsData(map, "https://softwaresreviewguides.com/dreamteam11/APIs/add_cricket_news_api.php");
+        Call<AddMatchModel> call = retrofitWebservice.getNewsData(map, "https://minutenewsflash.com/admin/posible_team/APIs/add_cricket_news_api.php");
         call.enqueue(new Callback<AddMatchModel>() {
             @Override
             public void onResponse(@NonNull Call<AddMatchModel> call, @NonNull Response<AddMatchModel> response) {

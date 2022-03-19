@@ -44,7 +44,7 @@ public class NewsActivity extends AppCompatActivity {
         }, 2000);
 
 
-        Glide.with(this).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_News_Images/" + img).into(newsImg);
+        Glide.with(this).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_News_Images/" + img).into(newsImg);
         newsTitle.setText(title);
         newsDesc.setText(desc);
         MyApp.showInterstitialAd(this);

@@ -43,8 +43,8 @@ public class CricketLiveScoreAdapter extends RecyclerView.Adapter<CricketLiveSco
     @Override
     public void onBindViewHolder(@NonNull CricketLiveScoreViewHolder holder, int position) {
 
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/"+cricketLiveScoreModelList.get(position).getImage1()).into(holder.teamIcon1);
-        Glide.with(context).load("https://softwaresreviewguides.com/dreamteam11/APIs/Cricket_Team_Images/"+cricketLiveScoreModelList.get(position).getImage2()).into(holder.teamIcon2);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/"+cricketLiveScoreModelList.get(position).getImage1()).into(holder.teamIcon1);
+        Glide.with(context).load("https://minutenewsflash.com/admin/posible_team/APIs/Cricket_Team_Images/"+cricketLiveScoreModelList.get(position).getImage2()).into(holder.teamIcon2);
         holder.teamName.setText(cricketLiveScoreModelList.get(position).getTeam1Name() + "  Vs  " + cricketLiveScoreModelList.get(position).getTeam2Name());
         holder.date.setText(cricketLiveScoreModelList.get(position).getMatchDate());
         holder.desc.setText(cricketLiveScoreModelList.get(position).getMatchDesc());

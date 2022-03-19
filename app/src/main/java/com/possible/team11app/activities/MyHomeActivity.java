@@ -393,7 +393,7 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setPackage("com.google.android.gm");
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"myexpertteam11@gmail.com"});
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"  amitdeshiu@gmail.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, "Hello");
         i.putExtra(Intent.EXTRA_TEXT, "I need some help regarding ");
         try {
