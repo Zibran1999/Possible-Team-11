@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "15141359727",
+    "project_id": "possible-team-11",
+    "storage_bucket": "possible-team-11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15141359727:android:9d6eb36121c79a7fdfbd9a",
+        "android_client_info": {
+          "package_name": "com.possible.team11app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15141359727-kcm0cpfvfdk0fvbdlg6tpob7hpal55af.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.possible.team11app",
+            "certificate_hash": "9244fe79748cc6bc570856a9ebd14218ba98155e"
+          }
+        },
+        {
+          "client_id": "15141359727-8hp2j9utnq3sujk4pk2rh6np35uo8inb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuC0Q-zMi-1hmpIlGjiSY6sR1xlrfml9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15141359727-8hp2j9utnq3sujk4pk2rh6np35uo8inb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

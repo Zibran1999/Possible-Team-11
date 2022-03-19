@@ -1,4 +1,35 @@
-
 <resources>
     <string name="app_name">Possible Team 11</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_match_detail">MatchDetailActivity</string>
+    <string name="tab_text_1">CRICKET</string>
+    <string name="tab_text_2">NEWS</string>
+    <string name="tab_text_3">FOOTBALL</string>
+    <string name="tab_text_4">PREVIEW</string>
+    <string name="tab_text_5">CODES</string>
+    <string name="tab_text_6">TEAM</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="best_team_loading">Best Team Loading.....</string>
+    <string name="golf_keeper">Golf-Keeper</string>
+    <string name="a_ronaldo">Ronaldo</string>
+    <string name="_8_8cr">8.8cr</string>
+    <string name="defender">Defender</string>
+    <string name="fielder">Fielder</string>
+    <string name="internet_not_connected_n_please_on_your_internet_connection">Internet not connected \n Please ON your internet connection</string>
+    <string name="add_your_contest">Add your Contest</string>
+    <string name="user_name">User Name</string>
+    <string name="winning_amount">Winning Amount</string>
+    <string name="english">Eng</string>
+    <string name="hindi">Hin</string>
+
+    <!--    <string name="banner_ad_id">ca-app-pub-1247850544347178/7268356634</string>-->
+    <!--    <string name="interstitial_ad_id">ca-app-pub-1247850544347178/1420940065</string>-->
+    <string name="app_id">ca-app-pub-1247850544347178~9054536437</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="todo">TODO</string>
+    <string name="ad_attribution">AD</string>
+    <string name="version_1">version 1</string>
 </resources>
